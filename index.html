@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автостопом по краю - Minecraft проект</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #f0f0f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(25, 25, 40, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #4a4a6d;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #00adb5;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #00adb5;
+            text-shadow: 0 0 10px rgba(0, 173, 181, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0c0;
+            margin-bottom: 15px;
+        }
+
+        .minecraft-icon {
+            font-size: 3rem;
+            color: #00ff88;
+            margin: 15px 0;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: rgba(30, 30, 50, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #00adb5;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #00ff88;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 i {
+            margin-right: 12px;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            color: #a0a0c0;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(40, 40, 70, 0.7);
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .question:hover {
+            background: rgba(50, 50, 90, 0.9);
+        }
+
+        .question i {
+            transition: transform 0.3s;
+        }
+
+        .answer {
+            padding: 20px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 10px;
+            margin-top: 10px;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .answer.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .goal-list {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .goal-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #4a4a6d;
+            display: flex;
+            align-items: center;
+        }
+
+        .goal-list li:last-child {
+            border-bottom: none;
+        }
+
+        .goal-list i {
+            color: #00ff88;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .link {
+            color: #00adb5;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .link:hover {
+            color: #00fff7;
+            text-shadow: 0 0 8px rgba(0, 173, 181, 0.7);
+            background: rgba(0, 173, 181, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #4a4a6d;
+            color: #a0a0c0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="minecraft-icon">
+                <i class="fas fa-cube"></i>
+            </div>
+            <h1>Автостопом по краю</h1>
+            <p class="subtitle">Minecraft Bedrock выживание с целями и приключениями</p>
+        </header>
+
+        <section class="section">
+            <h2><i class="fas fa-question-circle"></i> О проекте</h2>
+            <div class="question" id="q1">
+                <span>Что такое «Автостопом по краю»?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="answer" id="a1">
+                <p><strong>«Автостопом по краю»</strong> — это проект в Minecraft Bedrock Edition, где я выживаю в сложных условиях, исследую мир, строю и достигаю поставленных целей. Это выживательное приключение с элементами строительства, добычи ресурсов и взаимодействия с жителями.</p>
+                <p>Проект сочетает в себе классическое выживание Minecraft с дополнительными целями и задачами, которые делают игру ещё интереснее.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-bullseye"></i> Цели проекта</h2>
+            <div class="question" id="q2">
+                <span>Какие цели у этого проекта?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="answer" id="a2">
+                <p>В проекте «Автостопом по краю» поставлены амбициозные цели:</p>
+                <ul class="goal-list">
+                    <li><i class="fas fa-home"></i> Построить деревню с жителями</li>
+                    <li><i class="fas fa-shield-alt"></i> Получить лучший сет незеритовой брони</li>
+                    <li><i class="fas fa-digging"></i> Получить лучшую незеритовую кирку</li>
+                    <li><i class="fas fa-landmark"></i> Построить музей с крутыми вещами</li>
+                </ul>
+                <p style="margin-top: 15px;">Каждая цель приближает проект к завершению и делает мир более интересным и развитым.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-newspaper"></i> Новости проекта</h2>
+            <div class="question" id="q3">
+                <span>Где можно посмотреть новости проекта?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="answer" id="a3">
+                <p>Все самые свежие новости, обновления и анонсы по проекту публикуются на моём аккаунте в <a href="https://web.gameram.com/profile/Monchick" target="_blank" class="link">GameRam</a>.</p>
+                <p>Там вы найдёте:</p>
+                <ul class="goal-list">
+                    <li><i class="fas fa-video"></i> Видео с прохождения</li>
+                    <li><i class="fas fa-images"></i> Скриншоты достижений</li>
+                    <li><i class="fas fa-calendar-alt"></i> Анонсы будущих стримов</li>
+                    <li><i class="fas fa-comments"></i> Обсуждения с подписчиками</li>
+                </ul>
+                <p style="margin-top: 15px;">Переходите по ссылке и подписывайтесь, чтобы не пропустить ничего важного!</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-comments"></i> Общение</h2>
+            <div class="question" id="q4">
+                <span>Где можно пообщаться с участниками проекта?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="answer" id="a4">
+                <p>Присоединяйтесь к нашему дружному сообществу! Пообщаться с другими участниками проекта, задать вопросы, поделиться идеями или просто поболтать можно в нашем <a href="https://t.me/+Yx5Org7aESUwMDE6" target="_blank" class="link">чате</a> в Telegram.</p>
+                <p>В чате вы найдёте:</p>
+                <ul class="goal-list">
+                    <li><i class="fas fa-users"></i> Единомышленников по Minecraft</li>
+                    <li><i class="fas fa-lightbulb"></i> Обсуждение идей для проекта</li>
+                    <li><i class="fas fa-gamepad"></i> Организацию совместных игр</li>
+                    <li><i class="fas fa-heart"></i> Дружескую атмосферу</li>
+                </ul>
+                <p style="margin-top: 15px;">Ждём вас в нашем уютном сообществе!</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Проект «Автостопом по краю» • Minecraft Bedrock Edition • 2024</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
+                <i class="fas fa-cube"></i> Неофициальный фанатский проект. Minecraft является товарным знаком Mojang AB.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Функция для работы аккордеона (раскрывающихся ответов)
+        document.querySelectorAll('.question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answerId = question.id.replace('q', 'a');
+                const answer = document.getElementById(answerId);
+                const icon = question.querySelector('i');
+                
+                // Закрываем все остальные ответы
+                document.querySelectorAll('.answer').forEach(ans => {
+                    if (ans.id !== answerId) {
+                        ans.classList.remove('show');
+                        // Сбрасываем иконки у других вопросов
+                        const otherIcon = document.getElementById('q' + ans.id.replace('a', '')).querySelector('i');
+                        if (otherIcon) {
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+                
+                // Переключаем текущий ответ
+                answer.classList.toggle('show');
+                
+                // Анимируем иконку
+                if (answer.classList.contains('show')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Автоматически открываем первый вопрос
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('q1').click();
+        });
+    </script>
+</body>
+              </html>
